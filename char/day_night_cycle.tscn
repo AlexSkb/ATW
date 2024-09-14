@@ -1,0 +1,76 @@
+[gd_scene load_steps=9 format=3 uid="uid://do3x1xb55epsg"]
+
+[sub_resource type="Gradient" id="Gradient_2cr1c"]
+offsets = PackedFloat32Array(0, 0)
+colors = PackedColorArray(0, 0.0862745, 0.721569, 0.972549, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ava8g"]
+gradient = SubResource("Gradient_2cr1c")
+fill_from = Vector2(1, 1)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_qcpfi"]
+night_sky = SubResource("GradientTexture2D_ava8g")
+
+[sub_resource type="Sky" id="Sky_rv65t"]
+sky_material = SubResource("PhysicalSkyMaterial_qcpfi")
+
+[sub_resource type="Environment" id="Environment_ng2ps"]
+background_mode = 2
+sky = SubResource("Sky_rv65t")
+
+[sub_resource type="Animation" id="Animation_bt2f2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DirectionalLight3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.61799, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kwflp"]
+resource_name = "SunCycle"
+length = 120.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DirectionalLight3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 73.5333, 120),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-3.10108, 0, 0), Vector3(0.349066, 0, 0), Vector3(2.96706, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t3u0p"]
+_data = {
+"RESET": SubResource("Animation_bt2f2"),
+"SunCycle": SubResource("Animation_kwflp")
+}
+
+[node name="DayNightCycle" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ng2ps")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.866024, 0.500004, 0, -0.500004, -0.866024, 0, -57.9173, 0)
+light_color = Color(1, 0.871667, 0.65, 1)
+light_energy = 4.914
+light_indirect_energy = 6.073
+directional_shadow_mode = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_t3u0p")
+}
+autoplay = "SunCycle"

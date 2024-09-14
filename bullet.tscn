@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://cpjrn2vb58qh5"]
+
+[ext_resource type="Script" path="res://bullet.gd" id="1_pa4d0"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_qufer"]
+
+[sub_resource type="Skin" id="Skin_oxa66"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6rwnx"]
+albedo_color = Color(0, 0, 0, 1)
+emission_enabled = true
+emission = Color(0.0550232, 0.086025, 0.132857, 1)
+
+[node name="bullet" type="Node3D"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, -1)
+script = ExtResource("1_pa4d0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_qufer")
+skin = SubResource("Skin_oxa66")
+surface_material_override/0 = SubResource("StandardMaterial3D_6rwnx")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.1)
+target_position = Vector3(0, 0, -1)
