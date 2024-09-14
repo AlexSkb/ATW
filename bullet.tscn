@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cpjrn2vb58qh5"]
+[gd_scene load_steps=7 format=3 uid="uid://cpjrn2vb58qh5"]
 
 [ext_resource type="Script" path="res://bullet.gd" id="1_pa4d0"]
+[ext_resource type="AudioStream" uid="uid://kmfd77ij4g83" path="res://assets/sound/CannonShot.wav" id="2_qkku2"]
+[ext_resource type="AudioStream" path="E:/Studia/Stopien magisterski Inf/Sem 2/TM/3d acceleration sensors/assets/sound/bullet_hit.wav" id="3_71psj"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_qufer"]
 
@@ -23,3 +25,9 @@ surface_material_override/0 = SubResource("StandardMaterial3D_6rwnx")
 [node name="RayCast3D" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.1)
 target_position = Vector3(0, 0, -1)
+
+[node name="AudioShoot" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_qkku2")
+
+[node name="AudioHit" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_71psj")

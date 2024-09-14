@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cfhql05dj6udh"]
+[gd_scene load_steps=30 format=3 uid="uid://cfhql05dj6udh"]
 
 [ext_resource type="Script" path="res://main.gd" id="1"]
 [ext_resource type="Script" path="res://fps_meter.gd" id="2_4ahv0"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://d4fcdkjnrutji" path="res://char/hero.tscn" id="15_rtfj0"]
 [ext_resource type="Texture2D" uid="uid://djqoyh0erf6og" path="res://medieval_blocks_02_nor_gl_4k.jpg" id="15_ve4yy"]
 [ext_resource type="PackedScene" uid="uid://choo70jhtdlqq" path="res://char/enemy.tscn" id="16_a3ta2"]
+[ext_resource type="AudioStream" path="E:/Studia/Stopien magisterski Inf/Sem 2/TM/3d acceleration sensors/assets/sound/main_theme.mp3" id="18_q3i0c"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gwesd"]
 albedo_texture = ExtResource("3_xppel")
@@ -315,3 +316,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5743, 14.5257, 0)
 
 [node name="Enemy2" parent="." instance=ExtResource("16_a3ta2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.1777, 14.5257, 0)
+
+[node name="MainTheme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_q3i0c")
+autoplay = true

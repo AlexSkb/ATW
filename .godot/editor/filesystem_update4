@@ -1,0 +1,9 @@
+res://main.tscn
+res://char/hero.gd
+res://char/enemy.tscn
+res://Canoc.tscn
+res://char/hero.tscn
+res://bullet.tscn
+res://bullet.gd
+res://Sparks.tscn
+res://char/enemy.gd

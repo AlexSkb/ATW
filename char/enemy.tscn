@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://choo70jhtdlqq"]
+[gd_scene load_steps=9 format=3 uid="uid://choo70jhtdlqq"]
 
 [ext_resource type="PackedScene" uid="uid://cq4u1lqr4ssdp" path="res://glTF format/ship_light.gltf" id="1_w54a4"]
 [ext_resource type="Script" path="res://char/enemy.gd" id="2_fuutl"]
+[ext_resource type="AudioStream" uid="uid://b6kopaqliqj57" path="res://assets/sound/contact_hit.wav" id="3_4a8ps"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ymdiw"]
 
@@ -68,6 +69,7 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bqd6t"]
+radius = 0.36
 
 [node name="Enemy" groups=["enemy"] instance=ExtResource("1_w54a4")]
 script = ExtResource("2_fuutl")
@@ -93,7 +95,10 @@ autoplay = "float"
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, -0.372396)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitPlayerArea" index="0"]
-transform = Transform3D(2, 0, 0, 0, -8.74228e-08, -2, 0, 2, -8.74228e-08, -0.886255, 0.93673, 0)
+transform = Transform3D(2, 0, 0, 0, -8.74228e-08, -2, 0, 2, -8.74228e-08, -0.434859, 0.656636, -0.207852)
 shape = SubResource("CapsuleShape3D_bqd6t")
+
+[node name="ContactHitSound" type="AudioStreamPlayer3D" parent="." index="6"]
+stream = ExtResource("3_4a8ps")
 
 [connection signal="body_entered" from="HitPlayerArea" to="." method="_on_hit_player_area_body_entered"]

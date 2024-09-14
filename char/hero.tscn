@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://canoc.gd" id="4_pptgp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_amvbq"]
+radius = 0.47
+height = 2.7
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_d0g70"]
 
@@ -261,7 +263,7 @@ script = ExtResource("4_pptgp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
 physics_interpolation_mode = 2
-transform = Transform3D(3.6, 0, 0, 0, -0.0571747, -3.59955, 0, 3.59955, -0.0571747, 4.31929, 1.71377, -0.767656)
+transform = Transform3D(2.9, 0, 0, 0, -0.00404924, -2.9, 0, 2.9, -0.00404924, 4.28426, 1.89944, -0.66244)
 shape = SubResource("CapsuleShape3D_amvbq")
 
 [node name="ball" type="RigidBody3D" parent="." index="2"]

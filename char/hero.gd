@@ -55,7 +55,7 @@ func die():
 	$ship_dark_8angles.visible = false
 	$ball/ship_wreck_8angles.visible = true
 	$SpringArm3D/Camera3D/GameOver.visible = true
-	$AnimationPlayer.pause()
+	$AnimationPlayer.pause() 
 	pass
 
 	
@@ -98,6 +98,9 @@ func _process(delta: float) -> void:
 		#ship.rotation.z = lerp(ship.rotation.z, t, 10* delta)
 	
 	
+	if Input.is_action_pressed("exit"):
+		get_tree().quit()
+	
 
 func _input(event):
 	# Check for screen touch event
@@ -113,13 +116,13 @@ func _physics_process(delta: float) -> void:
 	if player_can_move:	#sprawdzenie czy graczowi przysługuje ruch
 		ship.transform.origin = ball.transform.origin + sphere_offset
 		ball.apply_central_force(-ship.global_transform.basis.z * speed_input)
-	if Input.is_action_just_pressed("shoot"):		
-		instance = bullet.instantiate()
-		instance.position = gun_barrel.position
-		instance.transform.origin = gun_barrel.global_transform.origin
-		instance.transform.basis = gun_barrel.global_transform.basis
-		add_child(instance)
-		print("STRZELAM!!!")
+		if Input.is_action_just_pressed("shoot"):		
+			instance = bullet.instantiate()
+			instance.position = gun_barrel.position
+			instance.transform.origin = gun_barrel.global_transform.origin
+			instance.transform.basis = gun_barrel.global_transform.basis
+			add_child(instance)
+			print("STRZELAM!!!")
 		
 func points(points):
 	number_of_points += points

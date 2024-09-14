@@ -38,7 +38,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_612ou")
 
-[node name="Node3D" type="Node3D"]
+[node name="Cannon" type="Node3D"]
 
 [node name="cannon_front2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.997314, -0.0732382, 0, 0.0732382, 0.997314, 0.0806623, 0.244646, 2.77341)
