@@ -1,10 +1,10 @@
 fc8a56933c4b1c8d796fdb8f7a9f9475
-::res://::1726348391
-bullet.gd::GDScript::-1::1726348282::0::1::::<>Node3D<>::
-bullet.tscn::PackedScene::5845310276599207316::1726348391::0::1::::<><>::res://bullet.gd<>uid://kmfd77ij4g83::::res://assets/sound/CannonShot.wav<>uid://bnyof8lrqawry::::res://assets/sound/bullet_hit.mp3
+::res://::1726431813
+bullet.gd::GDScript::-1::1726411705::0::1::::<>Node3D<>::
+bullet.tscn::PackedScene::5845310276599207316::1726431813::0::1::::<><>::res://bullet.gd<>uid://kmfd77ij4g83::::res://assets/sound/CannonShot.wav
 camera_pivot.gd::GDScript::-1::1725783728::0::1::::<>Node3D<>::
 canoc.gd::GDScript::-1::1726149852::0::1::::<>Node3D<>::
-Canoc.tscn::PackedScene::8337637570822217408::1726348391::0::1::::<><>::
+Canoc.tscn::PackedScene::8337637570822217408::1726409140::0::1::::<><>::
 coast_sand_rocks_02_diff_4k.jpg::CompressedTexture2D::2952116562017717776::1724447927::1724447969::1::::<><>::
 coast_sand_rocks_02_nor_gl_4k.jpg::CompressedTexture2D::2575853391296452419::1724447927::1724447933::1::::<><>::
 coast_sand_rocks_02_rough_4k.jpg::CompressedTexture2D::4382499652652028355::1724447927::1724447931::1::::<><>::
@@ -13,7 +13,7 @@ export_presets.cfg::TextFile::-1::1725791940::0::1::::<><>::
 fps_meter.gd::GDScript::-1::1725783728::0::1::::<>Label<>::
 icon.webp::CompressedTexture2D::3626017087650301524::1720815631::1720815636::1::::<><>::
 main.gd::GDScript::-1::1725783729::0::1::::<>Node<>::
-main.tscn::PackedScene::5139228705049460773::1726348391::0::1::::<><>::res://main.gd<>res://fps_meter.gd<>res://number_of_points.gd<>uid://bmmiexkcyw0f8::::res://rock_face_03_diff_4k.jpg<>uid://do3x1xb55epsg::::res://char/day_night_cycle.tscn<>uid://d134vd5h3860v::::res://rock_face_03_nor_gl_4k.jpg<>uid://cwc3lhgbkvuuj::::res://rock_face_03_rough_4k.jpg<>uid://bllea5gm4e3vp::::res://glTF format/tower.gltf<>res://addons/zylann.hterrain/hterrain.gd<>res://terrain/data.hterrain<>res://addons/zylann.hterrain/hterrain_texture_set.gd<>uid://bica6tkpu6lga::::res://coast_sand_rocks_02_diff_4k.jpg<>uid://bcx06t7d46wnj::::res://coast_sand_rocks_02_nor_gl_4k.jpg<>uid://cye6wmtpsj6se::::res://medieval_blocks_02_diff_4k.jpg<>uid://d4fcdkjnrutji::::res://char/hero.tscn<>uid://djqoyh0erf6og::::res://medieval_blocks_02_nor_gl_4k.jpg<>uid://choo70jhtdlqq::::res://char/enemy.tscn<>E:/Studia/Stopien magisterski Inf/Sem 2/TM/3d acceleration sensors/assets/sound/main_theme.mp3
+main.tscn::PackedScene::5139228705049460773::1726431812::0::1::::<><>::res://main.gd<>res://fps_meter.gd<>res://number_of_points.gd<>uid://bmmiexkcyw0f8::::res://rock_face_03_diff_4k.jpg<>uid://do3x1xb55epsg::::res://char/day_night_cycle.tscn<>uid://d134vd5h3860v::::res://rock_face_03_nor_gl_4k.jpg<>uid://cwc3lhgbkvuuj::::res://rock_face_03_rough_4k.jpg<>uid://bllea5gm4e3vp::::res://glTF format/tower.gltf<>res://addons/zylann.hterrain/hterrain.gd<>res://terrain/data.hterrain<>res://addons/zylann.hterrain/hterrain_texture_set.gd<>uid://bica6tkpu6lga::::res://coast_sand_rocks_02_diff_4k.jpg<>uid://bcx06t7d46wnj::::res://coast_sand_rocks_02_nor_gl_4k.jpg<>uid://cye6wmtpsj6se::::res://medieval_blocks_02_diff_4k.jpg<>uid://d4fcdkjnrutji::::res://char/hero.tscn<>uid://djqoyh0erf6og::::res://medieval_blocks_02_nor_gl_4k.jpg<>uid://choo70jhtdlqq::::res://char/enemy.tscn<>E:/Studia/Stopien magisterski Inf/Sem 2/TM/3d acceleration sensors/assets/sound/main_theme.mp3
 medieval_blocks_02_diff_4k.jpg::CompressedTexture2D::6467553300294347756::1724524201::1724524546::1::::<><>::
 medieval_blocks_02_nor_gl_4k.jpg::CompressedTexture2D::7824884991327252694::1724524201::1724524208::1::::<><>::
 medieval_blocks_02_rough_4k.jpg::CompressedTexture2D::291120783574072498::1724524201::1724524207::1::::<><>::
@@ -25,7 +25,7 @@ rocky_terrain_rough_4k.jpg::CompressedTexture2D::8225619779444449882::1724447557
 rock_face_03_diff_4k.jpg::CompressedTexture2D::3253953443124892447::1724423369::1724423447::1::::<><>::
 rock_face_03_nor_gl_4k.jpg::CompressedTexture2D::9043773061515031179::1724423369::1724423726::1::::<><>::
 rock_face_03_rough_4k.jpg::CompressedTexture2D::6322844779453374441::1724423369::1724445108::1::::<><>::
-Sparks.tscn::PackedScene::3889265164909116839::1726348391::0::1::::<><>::
+Sparks.tscn::PackedScene::3889265164909116839::1726431813::0::1::::<><>::
 steering.gd::GDScript::-1::1725783729::0::1::::<>Node3D<>::
 ::res://addons/::1726154300
 ::res://addons/zylann.hterrain/::1726154303
@@ -235,21 +235,21 @@ xyz_format.gd::GDScript::-1::1724447051::0::1::::<>RefCounted<>::
 clear-ocean-water-texture.jpg::CompressedTexture2D::8657873698795981007::1724422634::1724422639::1::::<><>::
 ::res://assets/::1726342571
 ::res://assets/Nowy folder/::1726341598
-::res://assets/sound/::1726348485
+::res://assets/sound/::1726390584
+bulletHit.wav::AudioStreamWAV::3899485734872431218::1726348483::1726390584::1::::<><>::
 bullet_hit.mp3::AudioStreamMP3::3349281435010424594::1726342976::1726347391::1::::<><>::
-bullet_hit.wav::AudioStreamWAV::1356640683331262100::1726348483::1726348487::1::::<><>::
 CannonShot.wav::AudioStreamWAV::726971642332192398::1725792496::1726347391::1::::<><>::
 contact_hit.mp3::AudioStreamMP3::5589214734748431184::1726342637::1726347441::1::::<><>::
 contact_hit.wav::AudioStreamWAV::4583795464047997984::1726348485::1726348487::1::::<><>::
-main_theme.mp3::AudioStreamMP3::2390325394110721512::1726337767::1726347391::1::::<><>::
-::res://char/::1726348427
+main_theme.mp3::AudioStreamMP3::2390325394110721512::1726337767::1726431897::1::::<><>::
+::res://char/::1726431813
 cannon_front_2.gd::GDScript::-1::1725981769::0::1::::<>MeshInstance3D<>::
 day_night_cycle.tscn::PackedScene::8201152571585771942::1726155603::0::1::::<><>::
-enemy.gd::GDScript::-1::1726347665::0::1::::<>CharacterBody3D<>::
-enemy.tscn::PackedScene::5293973072043515716::1726348427::0::1::::<><>::uid://cq4u1lqr4ssdp::::res://glTF format/ship_light.gltf<>res://char/enemy.gd
+enemy.gd::GDScript::-1::1726431537::0::1::::<>CharacterBody3D<>::
+enemy.tscn::PackedScene::5293973072043515716::1726431813::0::1::::<><>::uid://cq4u1lqr4ssdp::::res://glTF format/ship_light.gltf<>res://char/enemy.gd<>uid://b6kopaqliqj57::::res://assets/sound/contact_hit.wav<>uid://bvs67we4mg7c5::::res://assets/sound/bulletHit.wav
 hero2.tscn::PackedScene::5997272878908126341::1725785599::0::1::::<><>::uid://c6inmulby6qw3::::res://glTF format/ship_model.gltf<>res://char/hero.gd
-hero.gd::GDScript::-1::1726347752::0::1::::<>CharacterBody3D<>::
-hero.tscn::PackedScene::9205187736470716566::1726348391::0::1::::<><>::uid://dyci7lnw6nrg5::::res://glTF format/ship_dark.gltf<>res://char/hero.gd<>uid://dq12w4ty4pha3::::res://Canoc.tscn<>res://canoc.gd
+hero.gd::GDScript::-1::1726430708::0::1::::<>CharacterBody3D<>::
+hero.tscn::PackedScene::9205187736470716566::1726431812::0::1::::<><>::uid://dyci7lnw6nrg5::::res://glTF format/ship_dark.gltf<>res://char/hero.gd<>uid://dq12w4ty4pha3::::res://Canoc.tscn<>res://canoc.gd
 ::res://glTF format/::1726154307
 formationLarge_rock.gltf::PackedScene::9052871982630978115::1720986853::1720986857::1::::<><>::
 formationLarge_stone.gltf::PackedScene::711090732446206723::1720986853::1720986857::1::::<><>::

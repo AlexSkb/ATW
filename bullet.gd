@@ -18,8 +18,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	position += global_transform.basis * Vector3(0, 0, -SPEED) * delta
 	
-	if time_alive < 0.01:
-		$AudioShoot.play()
+	#if time_alive < 0.01:
+		#$AudioShoot.play()
+	
 	
 	time_alive += delta
 	if time_alive > LIFESPAN:
@@ -36,11 +37,4 @@ func _process(delta: float) -> void:
 func hit(enemy_id):
 	print("zadano obrażenia -> ", enemy_id)
 	enemy_id.call("hurt_enemy", 5)	#wywołanie metody dla obiektu o danym id
-	
-	var new_sparks = sparks.instantiate()
-	get_tree().get_root().add_child(new_sparks)
-	new_sparks.global_transform = global_transform
-	new_sparks.emitting = true
-	$AudioHit.play()
-	await get_tree().create_timer(2).timeout  #Delay for sound
 	queue_free()

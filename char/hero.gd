@@ -10,6 +10,7 @@ var steering = 8
 var turn_speed = 4
 var turn_stop_limit = 0.75
 var body_tilt = 35
+var shot_delay = 1
 
 var speed_input = 0
 var rotate_input = 0
@@ -18,11 +19,12 @@ var calibration_offset_x = 0.0
 var calibration_offset_y = 0.0
 
 #health stuff
-var health = 30
-
+var health = 60
 
 #game logic stuff
 var player_can_move = true
+var player_can_shoot = true
+var player_shoot_delay = 2
 
 #points stuff
 var number_of_points = 0
@@ -48,7 +50,7 @@ func hurt(hit_points):
 	$SpringArm3D/Camera3D/HealthBar.value = health
 	if health == 0:	#jeżeli punkty zdrowia są zerowe 
 		die()	#wywołaj funkcję die()
-		
+
 
 func die():
 	player_can_move = false	#zablokowanie możliwości ruchu graczowi
@@ -58,9 +60,13 @@ func die():
 	$AnimationPlayer.pause() 
 	pass
 
-	
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
+	if Input.is_action_pressed("exit"):
+		get_tree().quit()
+	
 	var acc = Input.get_accelerometer()
 	
 	var adjusted_x = acc.x - calibration_offset_x
@@ -96,11 +102,8 @@ func _process(delta: float) -> void:
 		
 		var t = -rotate_input * ball.linear_velocity.length() / body_tilt
 		#ship.rotation.z = lerp(ship.rotation.z, t, 10* delta)
-	
-	
-	if Input.is_action_pressed("exit"):
-		get_tree().quit()
-	
+
+
 
 func _input(event):
 	# Check for screen touch event
@@ -116,16 +119,24 @@ func _physics_process(delta: float) -> void:
 	if player_can_move:	#sprawdzenie czy graczowi przysługuje ruch
 		ship.transform.origin = ball.transform.origin + sphere_offset
 		ball.apply_central_force(-ship.global_transform.basis.z * speed_input)
-		if Input.is_action_just_pressed("shoot"):		
+		if Input.is_action_just_pressed("shoot") and player_can_shoot:
+			
+			
+			$ball/AudioShoot.play()					
 			instance = bullet.instantiate()
 			instance.position = gun_barrel.position
 			instance.transform.origin = gun_barrel.global_transform.origin
 			instance.transform.basis = gun_barrel.global_transform.basis
 			add_child(instance)
-			print("STRZELAM!!!")
-		
+			print("STRZELAM!!!")			
+			player_can_shoot = false
+			$TimerShoot.start(player_shoot_delay) 
+
+
 func points(points):
 	number_of_points += points
 	$"../Control/Label".call("show_points", number_of_points)
 	print("Masz ", number_of_points, " pkt!")
 	
+func _on_timer_shoot_timeout() -> void:
+	player_can_shoot = true

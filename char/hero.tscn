@@ -1,9 +1,10 @@
-[gd_scene load_steps=20 format=4 uid="uid://d4fcdkjnrutji"]
+[gd_scene load_steps=21 format=4 uid="uid://d4fcdkjnrutji"]
 
 [ext_resource type="PackedScene" uid="uid://dyci7lnw6nrg5" path="res://glTF format/ship_dark.gltf" id="1_7oawu"]
 [ext_resource type="Script" path="res://char/hero.gd" id="2_slrq5"]
 [ext_resource type="PackedScene" uid="uid://dq12w4ty4pha3" path="res://Canoc.tscn" id="3_0drlj"]
 [ext_resource type="Script" path="res://canoc.gd" id="4_pptgp"]
+[ext_resource type="AudioStream" uid="uid://kmfd77ij4g83" path="res://assets/sound/CannonShot.wav" id="5_hfvvq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_amvbq"]
 radius = 0.47
@@ -282,6 +283,12 @@ visible = false
 mesh = SubResource("ArrayMesh_fr3lh")
 skeleton = NodePath("")
 
+[node name="AudioShoot" type="AudioStreamPlayer3D" parent="ball" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.34878, 5.63594, 0)
+stream = ExtResource("5_hfvvq")
+volume_db = 10.0
+max_polyphony = 2
+
 [node name="SpringArm3D" type="SpringArm3D" parent="." index="3"]
 
 [node name="Camera3D" type="Camera3D" parent="SpringArm3D" index="0"]
@@ -315,3 +322,10 @@ libraries = {
 "": SubResource("AnimationLibrary_3lbi5")
 }
 autoplay = "floating"
+
+[node name="TimerShoot" type="Timer" parent="." index="5"]
+process_callback = 0
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="TimerShoot" to="." method="_on_timer_shoot_timeout"]

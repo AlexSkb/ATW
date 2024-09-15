@@ -1,3 +1,5 @@
+Timer
+CollisionShape3D
 AudioStreamPlayer3D
 AudioStreamPlayer
 Label
@@ -7,7 +9,6 @@ Node3D
 MeshInstance3D
 Marker3D
 Area3D
-CollisionShape3D
 ProgressBar
 Camera3D
 SpringArm3D

@@ -24,11 +24,16 @@ func _on_hit_player_area_body_entered(body: Node3D) -> void:
 	pass # Replace with function body.
 	
 func hurt_enemy(hit_points):
+	$AudioHit.play()
 	if hit_points < enemy_health:		#jeżeli otrzymany damage jest mniejszy od obecnych punktów zdrowia
 		enemy_health -= hit_points	#odejmij otrzymane obrażenia od punktów zdrowia
 	else:
 		enemy_health = 0	#moment w którym otrzymany damage jest większy od obecnych punktów zdrowia
 	if enemy_health == 0:	#jeżeli punkty zdrowia są zerowe 
+		#$AnimationPlayer.stop("float")
+		$AnimationPlayer.play("die")		
+		#$AnimationPlayer.rese
+		await get_tree().create_timer(3).timeout  #Delay for sound
 		enemy_die()	#wywołaj funkcję die()	
 		
 func enemy_die():
