@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://bvn8vnfxgqxj0"]
+
+[sub_resource type="Curve" id="1"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.56333, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="2"]
+curve = SubResource("1")
+
+[sub_resource type="ParticleProcessMaterial" id="3"]
+scale_min = 0.0
+scale_max = 0.0
+scale_curve = SubResource("2")
+
+[sub_resource type="StandardMaterial3D" id="4"]
+shading_mode = 0
+albedo_color = Color(0.894118, 0.886275, 0.733333, 1)
+
+[sub_resource type="BoxMesh" id="5"]
+material = SubResource("4")
+
+[node name="Sparks" type="GPUParticles3D"]
+transform = Transform3D(1, 0, 0, 0, -0.173648, 0.984808, 0, -0.984808, -0.173648, 0, 0, 0)
+cast_shadow = 0
+emitting = false
+lifetime = 2.0
+one_shot = true
+speed_scale = 2.0
+explosiveness = 0.86
+process_material = SubResource("3")
+draw_pass_1 = SubResource("5")

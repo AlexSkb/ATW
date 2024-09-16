@@ -1,0 +1,335 @@
+[gd_scene load_steps=30 format=3 uid="uid://cfhql05dj6udh"]
+
+[ext_resource type="Script" path="res://main.gd" id="1"]
+[ext_resource type="Script" path="res://fps_meter.gd" id="2_4ahv0"]
+[ext_resource type="Script" path="res://number_of_points.gd" id="3_73e7j"]
+[ext_resource type="Texture2D" uid="uid://bmmiexkcyw0f8" path="res://rock_face_03_diff_4k.jpg" id="3_xppel"]
+[ext_resource type="Script" path="res://show_ammo.gd" id="4_8yxt2"]
+[ext_resource type="PackedScene" uid="uid://do3x1xb55epsg" path="res://char/day_night_cycle.tscn" id="4_n7ico"]
+[ext_resource type="Texture2D" uid="uid://d134vd5h3860v" path="res://rock_face_03_nor_gl_4k.jpg" id="4_slvsg"]
+[ext_resource type="Texture2D" uid="uid://cwc3lhgbkvuuj" path="res://rock_face_03_rough_4k.jpg" id="5_13v7g"]
+[ext_resource type="PackedScene" uid="uid://bllea5gm4e3vp" path="res://glTF format/tower.gltf" id="7_b5u4q"]
+[ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="8_5gilu"]
+[ext_resource type="Resource" path="res://terrain/data.hterrain" id="9_y2bp8"]
+[ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="10_ei1kn"]
+[ext_resource type="Texture2D" uid="uid://bica6tkpu6lga" path="res://coast_sand_rocks_02_diff_4k.jpg" id="11_5kp7e"]
+[ext_resource type="Texture2D" uid="uid://bcx06t7d46wnj" path="res://coast_sand_rocks_02_nor_gl_4k.jpg" id="12_8v2xh"]
+[ext_resource type="Texture2D" uid="uid://cye6wmtpsj6se" path="res://medieval_blocks_02_diff_4k.jpg" id="13_27raq"]
+[ext_resource type="PackedScene" uid="uid://d4fcdkjnrutji" path="res://char/hero.tscn" id="15_rtfj0"]
+[ext_resource type="Texture2D" uid="uid://djqoyh0erf6og" path="res://medieval_blocks_02_nor_gl_4k.jpg" id="15_ve4yy"]
+[ext_resource type="PackedScene" uid="uid://choo70jhtdlqq" path="res://char/enemy.tscn" id="16_a3ta2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gwesd"]
+albedo_texture = ExtResource("3_xppel")
+roughness = 0.48
+roughness_texture = ExtResource("5_13v7g")
+normal_enabled = true
+normal_texture = ExtResource("4_slvsg")
+subsurf_scatter_strength = 1.0
+uv1_scale = Vector3(3, 3, 3)
+uv1_triplanar_sharpness = 1.03527
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mtwyj"]
+material = SubResource("StandardMaterial3D_gwesd")
+size = Vector2(300, 300)
+center_offset = Vector3(0, 1, 0)
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_wr22k"]
+vertices = PackedVector3Array(-149.5, 1.39832, 40.5, -67, 1.39832, 40.5, -67, 1.39832, 38.5, -66.25, 1.39832, 37.75, -60.25, 1.39832, 34.25, -149.5, 1.39832, -149.5, -59.25, 1.39832, 34.25, -52.75, 1.39832, 38, 149.5, 1.39832, 38, 149.5, 1.39832, -149.5, -66.5, 10.3983, 38.25, -60.5, 10.3983, 35, -59, 10.3983, 32.5, -149.5, 10.3983, 39.75, -66.75, 10.3983, 40, -58, 10.3983, 32, -58, 10.3983, -149.5, -149.5, 10.3983, -149.5, -51.5, 10.3983, 35.5, -51, 10.3983, 36.5, 149.5, 10.3983, 36.5, 149.5, 10.3983, -149.5, -51.25, -31.8517, 45, -50.75, -31.8517, 44.75, -50.75, -31.8517, 43.75, -64.5, -31.8517, 31.25, -65, -31.8517, 31.75, -66, -31.8517, 33.5, -53.5, -31.8517, 48, -52.5, -31.8517, 48.75, -50.75, -31.8517, 48, -57.25, -31.8517, 35, -57.75, -31.8517, 33.5, -59, -31.8517, 32.75, -60.5, -31.8517, 32.75, -51.75, -31.8517, 41.5, -52.5, -31.8517, 41.25, -54.75, -31.8517, 48, -52.5, -31.8517, 38.5, -53.5, -31.8517, 38, -66.75, -31.8517, 43.25, -69.5, -31.8517, 44.75, -69.5, -31.8517, 47.75, -65.25, -31.8517, 48.5, -63.75, -31.8517, 48.5, -65.5, -31.8517, 37.75, -59.75, -31.8517, 51, -61.5, -31.8517, 31.25, -66.25, -31.8517, 36, -67.25, -31.8517, 49.5, -66.75, -31.8517, 38.5, -54, -31.8517, 36.5, -63, -27.6017, 33, -62.5, -27.6017, 34, -62, -27.6017, 33, -63.75, -27.6017, 32.75, -57.75, 12.1483, 33.25, -58.75, 12.1483, 34.25, -58.75, 12.1483, 35, -53.25, 12.1483, 38.25, -52.25, 12.1483, 36.75, -53.75, 10.3983, 38.25, -52.75, 10.3983, 37, -52.75, 10.3983, 36.5, -58, 10.3983, 33.75, -59.25, 10.3983, 36, -65.5, 10.3983, 47, -66.5, 10.3983, 48.25, -66, 10.3983, 49.25, -61.25, 10.3983, 51.75, -59.75, 10.3983, 49.25, -65.5, 10.3983, 39.5, -54, 10.3983, 46.25, -65, 10.3983, 39, -54.25, -1.85168, 34.75, -54.5, -1.85168, 34, -55, -1.85168, 34, -56, -1.85168, 35.5, -56, -1.85168, 36.25, -55.25, -1.85168, 36.5, -65, -9.10168, 35.5, -65.25, -9.10168, 36, -65.25, -9.10168, 36.75, -63.5, -9.10168, 36, -63.5, -9.10168, 35.5, -58.75, 42.3983, 37.25, -58.5, 42.3983, 36.75, -59.25, 42.3983, 35.75, -60.75, 42.3983, 36.25, -60.5, 42.3983, 37.25, -59.25, 1.39832, 49.5, -57.5, 1.39832, 48.5, -57.25, 1.39832, 47.25, -64.5, 1.39832, 47, -55.25, 1.39832, 47.25, -53.5, 1.39832, 46.25, -53.5, 1.39832, 39.25, -59, 1.39832, 36, -59.75, 1.39832, 35.75, -65.75, 1.39832, 39.25, -65.75, 1.39832, 46.25, -52.5, 10.3983, 39, -52.5, 10.3983, 45, 149.5, 10.3983, 45, -63.5, 37.1483, 37.75, -63.25, 37.1483, 38.75, -61.5, 37.1483, 38, -61.75, 37.1483, 37, -57.25, 37.1483, 37, -57.75, 37.1483, 37.25, -57.75, 37.1483, 38, -56.5, 37.1483, 38.75, -55.75, 37.1483, 38.25, -55.75, 37.1483, 37.75, -55.5, 33.3983, 40.25, -58.5, 33.3983, 38.5, -59.75, 33.3983, 38, -63.75, 33.3983, 45, -63.25, 33.3983, 45.5, -59.5, 33.3983, 47.5, -63.75, 33.3983, 40.25, -55.5, 33.3983, 45, -52.25, 1.39832, 47, -59.5, 1.39832, 51.25, -59.5, 1.39832, 149.5, 149.5, 1.39832, 149.5, -52.25, 1.39832, 38.5, -65.75, 42.3983, 40.5, -64.75, 42.3983, 40.5, -64.75, 42.3983, 39.75, -65.75, 42.3983, 39.25, -64.25, 42.3983, 39.5, -64.5, 42.3983, 38.5, -53.5, 42.3983, 39.25, -54.5, 42.3983, 38.5, -55, 42.3983, 38.75, -54.5, 42.3983, 40.5, -53.5, 42.3983, 40.5, -68.75, 33.6483, 39.25, -68.75, 33.6483, 46, -66.75, 33.6483, 46, -66.75, 33.6483, 39.25, -68.25, 10.3983, 49, -66.75, 10.3983, 46.25, -149.5, 10.3983, 49, -149.5, 1.39832, 45, -67, 1.39832, 45, -65.75, 37.1483, 41.5, -65.75, 37.1483, 43.75, -64.75, 37.1483, 43.75, -64.75, 37.1483, 41.5, -54.5, 37.1483, 41.5, -54.5, 37.1483, 43.75, -53.5, 37.1483, 43.75, -53.5, 37.1483, 41.5, -67, 1.39832, 47, -66.5, 1.39832, 47.5, -149.5, 1.39832, 149.5, -64.5, 42.3983, 47, -64, 42.3983, 46.25, -64.75, 42.3983, 45.75, -65.5, 42.3983, 46.5, -65.75, 42.3983, 44.75, -64.75, 42.3983, 44.75, -54.5, 42.3983, 45.75, -55.25, 42.3983, 46, -55, 42.3983, 46.75, -53.5, 42.3983, 46.25, -53.5, 42.3983, 44.75, -54.5, 42.3983, 44.75, -52.75, 10.3983, 47.25, -59, 10.3983, 50.5, -60.25, 10.3983, 53, -61, 10.3983, 149.5, -61, 10.3983, 53.5, 149.5, 10.3983, 149.5, -62, 37.1483, 48.5, -61.5, 37.1483, 48.25, -61.5, 37.1483, 47.5, -62.75, 37.1483, 46.75, -63.5, 37.1483, 47.25, -63, 37.1483, 48, -55.75, 37.1483, 47.5, -56, 37.1483, 46.75, -56.5, 37.1483, 46.75, -57.75, 37.1483, 47.5, -57.5, 37.1483, 48.5, -66, 12.1483, 47.25, -67, 12.1483, 48.5, -67, 12.1483, 49, -61.5, 12.1483, 52.25, -60.5, 12.1483, 51.25, -60.75, 12.1483, 50.25, -57.75, 33.6483, 52.25, -52.25, 33.6483, 49, -53.25, 33.6483, 47.25, -59, 33.6483, 50.5, -60.5, 42.3983, 48.25, -60.75, 42.3983, 48.75, -60, 42.3983, 49.75, -58.5, 42.3983, 49.25, -58.75, 42.3983, 48.25, -68, 10.3983, 49.75, -149.5, 10.3983, 149.5)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(0, 3, 2), PackedInt32Array(3, 0, 4), PackedInt32Array(4, 0, 5), PackedInt32Array(7, 6, 8), PackedInt32Array(8, 6, 9), PackedInt32Array(9, 6, 5), PackedInt32Array(6, 4, 5), PackedInt32Array(11, 10, 12), PackedInt32Array(12, 10, 13), PackedInt32Array(13, 10, 14), PackedInt32Array(12, 13, 15), PackedInt32Array(15, 13, 16), PackedInt32Array(16, 13, 17), PackedInt32Array(16, 18, 15), PackedInt32Array(18, 16, 19), PackedInt32Array(19, 16, 20), PackedInt32Array(20, 16, 21), PackedInt32Array(24, 23, 22), PackedInt32Array(27, 26, 25), PackedInt32Array(29, 28, 30), PackedInt32Array(30, 28, 22), PackedInt32Array(33, 32, 34), PackedInt32Array(34, 32, 31), PackedInt32Array(35, 24, 36), PackedInt32Array(36, 24, 22), PackedInt32Array(36, 22, 28), PackedInt32Array(36, 28, 37), PackedInt32Array(39, 38, 36), PackedInt32Array(41, 40, 42), PackedInt32Array(42, 40, 43), PackedInt32Array(43, 40, 44), PackedInt32Array(40, 45, 44), PackedInt32Array(44, 45, 31), PackedInt32Array(44, 31, 36), PackedInt32Array(44, 36, 37), PackedInt32Array(37, 46, 44), PackedInt32Array(25, 47, 34), PackedInt32Array(48, 27, 45), PackedInt32Array(45, 27, 25), PackedInt32Array(45, 25, 34), PackedInt32Array(45, 34, 31), PackedInt32Array(43, 49, 42), PackedInt32Array(40, 50, 45), PackedInt32Array(39, 36, 51), PackedInt32Array(51, 36, 31), PackedInt32Array(54, 53, 52), PackedInt32Array(54, 52, 55), PackedInt32Array(57, 56, 58), PackedInt32Array(58, 56, 59), PackedInt32Array(59, 56, 60), PackedInt32Array(62, 61, 63), PackedInt32Array(63, 61, 64), PackedInt32Array(64, 61, 65), PackedInt32Array(67, 66, 68), PackedInt32Array(68, 66, 69), PackedInt32Array(69, 66, 70), PackedInt32Array(70, 66, 72), PackedInt32Array(72, 66, 71), PackedInt32Array(72, 71, 65), PackedInt32Array(72, 65, 61), PackedInt32Array(71, 73, 65), PackedInt32Array(75, 74, 76), PackedInt32Array(76, 74, 77), PackedInt32Array(77, 74, 78), PackedInt32Array(78, 74, 79), PackedInt32Array(81, 80, 82), PackedInt32Array(82, 80, 83), PackedInt32Array(83, 80, 84), PackedInt32Array(86, 85, 87), PackedInt32Array(87, 85, 89), PackedInt32Array(87, 89, 88), PackedInt32Array(91, 90, 92), PackedInt32Array(92, 90, 93), PackedInt32Array(92, 95, 94), PackedInt32Array(98, 97, 96), PackedInt32Array(95, 92, 96), PackedInt32Array(96, 92, 98), PackedInt32Array(98, 92, 99), PackedInt32Array(99, 92, 93), PackedInt32Array(99, 93, 100), PackedInt32Array(101, 19, 102), PackedInt32Array(102, 19, 20), PackedInt32Array(102, 20, 103), PackedInt32Array(107, 106, 104), PackedInt32Array(104, 106, 105), PackedInt32Array(109, 108, 110), PackedInt32Array(110, 108, 111), PackedInt32Array(111, 108, 112), PackedInt32Array(112, 108, 113), PackedInt32Array(116, 115, 114), PackedInt32Array(119, 118, 117), PackedInt32Array(120, 116, 117), PackedInt32Array(117, 116, 114), PackedInt32Array(117, 114, 121), PackedInt32Array(117, 121, 119), PackedInt32Array(123, 122, 124), PackedInt32Array(124, 122, 125), PackedInt32Array(125, 122, 8), PackedInt32Array(8, 126, 7), PackedInt32Array(122, 126, 8), PackedInt32Array(128, 127, 129), PackedInt32Array(129, 127, 130), PackedInt32Array(131, 129, 132), PackedInt32Array(132, 129, 130), PackedInt32Array(134, 133, 135), PackedInt32Array(135, 133, 136), PackedInt32Array(136, 133, 137), PackedInt32Array(141, 140, 138), PackedInt32Array(138, 140, 139), PackedInt32Array(143, 142, 14), PackedInt32Array(14, 142, 144), PackedInt32Array(14, 144, 13), PackedInt32Array(0, 1, 145), PackedInt32Array(145, 1, 146), PackedInt32Array(150, 149, 147), PackedInt32Array(147, 149, 148), PackedInt32Array(154, 153, 151), PackedInt32Array(151, 153, 152), PackedInt32Array(145, 146, 155), PackedInt32Array(156, 145, 155), PackedInt32Array(156, 123, 145), PackedInt32Array(145, 123, 124), PackedInt32Array(145, 124, 157), PackedInt32Array(159, 158, 160), PackedInt32Array(160, 158, 161), PackedInt32Array(163, 160, 162), PackedInt32Array(162, 160, 161), PackedInt32Array(165, 164, 166), PackedInt32Array(166, 164, 167), PackedInt32Array(169, 168, 164), PackedInt32Array(164, 168, 167), PackedInt32Array(171, 170, 172), PackedInt32Array(172, 170, 173), PackedInt32Array(173, 174, 172), PackedInt32Array(170, 102, 173), PackedInt32Array(173, 102, 103), PackedInt32Array(173, 103, 175), PackedInt32Array(177, 176, 178), PackedInt32Array(178, 176, 181), PackedInt32Array(178, 181, 179), PackedInt32Array(179, 181, 180), PackedInt32Array(183, 182, 184), PackedInt32Array(184, 182, 185), PackedInt32Array(185, 182, 186), PackedInt32Array(188, 187, 189), PackedInt32Array(189, 187, 192), PackedInt32Array(189, 192, 191), PackedInt32Array(189, 191, 190), PackedInt32Array(194, 193, 195), PackedInt32Array(195, 193, 196), PackedInt32Array(198, 197, 199), PackedInt32Array(199, 197, 201), PackedInt32Array(199, 201, 200), PackedInt32Array(144, 142, 202), PackedInt32Array(202, 174, 144), PackedInt32Array(144, 174, 173), PackedInt32Array(144, 173, 203)]
+
+[sub_resource type="Shader" id="Shader_era4g"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.3.stable's StandardMaterial3D.
+
+shader_type spatial;
+render_mode blend_mix, depth_draw_always, cull_back, diffuse_burley, specular_schlick_ggx;
+
+uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;
+uniform float point_size : hint_range(0.1, 128.0, 0.1);
+
+uniform float roughness : hint_range(0.0, 1.0);
+uniform sampler2D texture_metallic : hint_default_white, filter_linear_mipmap, repeat_enable;
+uniform vec4 metallic_texture_channel;
+uniform sampler2D texture_roughness : hint_roughness_r, filter_linear_mipmap, repeat_enable;
+
+uniform float specular : hint_range(0.0, 1.0, 0.01);
+uniform float metallic : hint_range(0.0, 1.0, 0.01);
+
+uniform sampler2D texture_refraction : filter_linear_mipmap, repeat_enable;
+uniform float refraction : hint_range(-1.0, 1.0, 0.001);
+uniform vec4 refraction_texture_channel;
+uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_linear_mipmap;
+
+uniform sampler2D texture_normal : hint_roughness_normal, filter_linear_mipmap, repeat_enable;
+uniform float normal_scale : hint_range(-16.0, 16.0);
+varying vec3 uv1_triplanar_pos;
+
+uniform float uv1_blend_sharpness : hint_range(0.0, 150.0, 0.001);
+varying vec3 uv1_power_normal;
+
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+void vertex() {
+	vec3 normal = NORMAL;
+
+	TANGENT = vec3(0.0, 0.0, -1.0) * abs(normal.x);
+	TANGENT += vec3(1.0, 0.0, 0.0) * abs(normal.y);
+	TANGENT += vec3(1.0, 0.0, 0.0) * abs(normal.z);
+	TANGENT = normalize(TANGENT);
+
+	BINORMAL = vec3(0.0, 1.0, 0.0) * abs(normal.x);
+	BINORMAL += vec3(0.0, 0.0, -1.0) * abs(normal.y);
+	BINORMAL += vec3(0.0, 1.0, 0.0) * abs(normal.z);
+	BINORMAL = normalize(BINORMAL);
+
+	// UV1 Triplanar: Enabled
+	uv1_power_normal = pow(abs(NORMAL), vec3(uv1_blend_sharpness));
+	uv1_triplanar_pos = VERTEX * uv1_scale + uv1_offset + TIME * 0.01;
+	uv1_power_normal /= dot(uv1_power_normal, vec3(1.0));
+	uv1_triplanar_pos *= vec3(1.0, -1.0, 1.0);
+}
+
+vec4 triplanar_texture(sampler2D p_sampler, vec3 p_weights, vec3 p_triplanar_pos) {
+	vec4 samp = vec4(0.0);
+	samp += texture(p_sampler, p_triplanar_pos.xy) * p_weights.z;
+	samp += texture(p_sampler, p_triplanar_pos.xz) * p_weights.y;
+	samp += texture(p_sampler, p_triplanar_pos.zy * vec2(-1.0, 1.0)) * p_weights.x;
+	return samp;
+}
+
+void fragment() {
+	vec4 albedo_tex = triplanar_texture(texture_albedo, uv1_power_normal, uv1_triplanar_pos);
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
+
+	float metallic_tex = dot(triplanar_texture(texture_metallic, uv1_power_normal, uv1_triplanar_pos), metallic_texture_channel);
+	METALLIC = metallic_tex * metallic;
+	SPECULAR = specular;
+
+	vec4 roughness_texture_channel = vec4(1.0, 0.0, 0.0, 0.0);
+	float roughness_tex = dot(triplanar_texture(texture_roughness, uv1_power_normal, uv1_triplanar_pos), roughness_texture_channel);
+	ROUGHNESS = roughness_tex * roughness;
+
+	// Normal Map: Enabled
+	NORMAL_MAP = triplanar_texture(texture_normal, uv1_power_normal, uv1_triplanar_pos).rgb;
+	NORMAL_MAP_DEPTH = normal_scale;
+
+	// Refraction: Enabled (with normal map texture)
+	vec3 unpacked_normal = NORMAL_MAP;
+	unpacked_normal.xy = unpacked_normal.xy * 2.0 - 1.0;
+	unpacked_normal.z = sqrt(max(0.0, 1.0 - dot(unpacked_normal.xy, unpacked_normal.xy)));
+	vec3 ref_normal = normalize(mix(
+			NORMAL,
+			TANGENT * unpacked_normal.x + BINORMAL * unpacked_normal.y + NORMAL * unpacked_normal.z,
+			NORMAL_MAP_DEPTH));
+	vec2 ref_ofs = SCREEN_UV - ref_normal.xy * dot(triplanar_texture(texture_refraction, uv1_power_normal, uv1_triplanar_pos), refraction_texture_channel) * refraction;
+
+	float ref_amount = 1.0 - albedo.a * albedo_tex.a;
+	EMISSION += textureLod(screen_texture, ref_ofs, ROUGHNESS * 8.0).rgb * ref_amount * EXPOSURE;
+	ALBEDO *= 1.0 - ref_amount;
+	// Force transparency on the material (required for refraction).
+	ALPHA = 1.0;
+}
+"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3takf"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_enf63"]
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_3takf")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_22rdt"]
+render_priority = 0
+shader = SubResource("Shader_era4g")
+shader_parameter/albedo = Color(0.270588, 0.643137, 0.784314, 0.454902)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 0.3
+shader_parameter/metallic_texture_channel = null
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/refraction = 0.05
+shader_parameter/refraction_texture_channel = null
+shader_parameter/normal_scale = 1.0
+shader_parameter/uv1_blend_sharpness = 1.0
+shader_parameter/uv1_scale = Vector3(0.04, 0.04, 0.04)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/texture_refraction = SubResource("NoiseTexture2D_enf63")
+shader_parameter/texture_normal = SubResource("NoiseTexture2D_enf63")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xf5m1"]
+material = SubResource("ShaderMaterial_22rdt")
+size = Vector2(300, 300)
+center_offset = Vector3(0, 10, 0)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_au1ik"]
+data = PackedVector3Array(150, 10, 150, -150, 10, 150, 150, 10, -150, -150, 10, 150, -150, 10, -150, 150, 10, -150)
+
+[sub_resource type="Resource" id="Resource_2xk51"]
+script = ExtResource("10_ei1kn")
+mode = 0
+textures = [[ExtResource("3_xppel"), ExtResource("11_5kp7e"), ExtResource("13_27raq")], [ExtResource("4_slvsg"), ExtResource("12_8v2xh"), ExtResource("15_ve4yy")]]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_6gw5q"]
+resource_local_to_scene = true
+margin = 0.075
+height = 3.0
+
+[node name="Main" type="Node"]
+script = ExtResource("1")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 15.0
+autostart = true
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 989.0
+offset_bottom = 614.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+columns = 4
+
+[node name="LabelEmpty" type="Label" parent="Control/GridContainer"]
+layout_mode = 2
+
+[node name="LabelX" type="Label" parent="Control/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.666667, 0.666667, 0.666667, 1)
+text = "X"
+horizontal_alignment = 1
+
+[node name="LabelY" type="Label" parent="Control/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.666667, 0.666667, 0.666667, 1)
+text = "Y"
+horizontal_alignment = 1
+
+[node name="LabelZ" type="Label" parent="Control/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.666667, 0.666667, 0.666667, 1)
+text = "Z"
+horizontal_alignment = 1
+
+[node name="Accelerometer" type="Label" parent="Control/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.666667, 0.666667, 0.666667, 1)
+text = "Accelerometer"
+
+[node name="AccX" type="Label" parent="Control/GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(90, 2.08165e-12)
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+
+[node name="AccY" type="Label" parent="Control/GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(90, 2.08165e-12)
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+
+[node name="AccZ" type="Label" parent="Control/GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(90, 2.08165e-12)
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+
+[node name="FPS meter" type="Label" parent="Control/GridContainer"]
+layout_mode = 2
+script = ExtResource("2_4ahv0")
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 455.0
+offset_top = 22.0
+offset_right = 547.0
+offset_bottom = 61.0
+script = ExtResource("3_73e7j")
+
+[node name="Label2" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 876.0
+offset_top = 89.0
+offset_right = 1000.0
+offset_bottom = 137.0
+script = ExtResource("4_8yxt2")
+
+[node name="World" type="Node3D" parent="."]
+
+[node name="DayNightCycle" parent="World" instance=ExtResource("4_n7ico")]
+
+[node name="Ground" type="MeshInstance3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.983173, 0)
+mesh = SubResource("PlaneMesh_mtwyj")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.79142, -0.983173, 14.3856)
+navigation_mesh = SubResource("NavigationMesh_wr22k")
+
+[node name="Ocean" type="MeshInstance3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.983173, 9.47093)
+mesh = SubResource("PlaneMesh_xf5m1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/Ocean"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ocean/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_au1ik")
+
+[node name="HTerrain" type="Node3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.983173, 0)
+script = ExtResource("8_5gilu")
+centered = true
+_terrain_data = ExtResource("9_y2bp8")
+chunk_size = 32
+collision_enabled = true
+collision_layer = 1
+collision_mask = 1
+shader_type = "Classic4Lite"
+custom_shader = null
+custom_globalmap_shader = null
+texture_set = SubResource("Resource_2xk51")
+render_layers = 1
+cast_shadow = 1
+shader_params/u_ground_uv_scale = 200.0
+shader_params/u_depth_blending = false
+shader_params/u_triplanar = true
+shader_params/u_tile_reduction = Vector4(0, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.53105, 0, 65.2861)
+
+[node name="tower2" parent="World/StaticBody3D" instance=ExtResource("7_b5u4q")]
+transform = Transform3D(7, 0, 0, 0, 20, 0, 0, 0, 7, -2.83469, -31.0969, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/StaticBody3D"]
+physics_interpolation_mode = 1
+transform = Transform3D(23, 0, 0, 0, -22.9959, -0.436545, 0, 0.436545, -22.9959, -44.1908, 15.7222, -9.87826)
+shape = SubResource("CylinderShape3D_6gw5q")
+
+[node name="ship_dark" parent="." groups=["Hero"] instance=ExtResource("15_rtfj0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.63626, 14.6626, 0)
+
+[node name="Enemy" parent="." instance=ExtResource("16_a3ta2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.4791, 14.5257, 0)
+
+[node name="Enemy2" parent="." instance=ExtResource("16_a3ta2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.1777, 14.5257, 0)
+
+[node name="MainTheme" type="AudioStreamPlayer" parent="."]
+autoplay = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
