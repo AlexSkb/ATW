@@ -1,9 +1,9 @@
-Label
+Timer
 RayCast3D
 MeshInstance3D
 Node3D
+Label
 CollisionShape3D
-Timer
 AudioStreamPlayer3D
 AudioStreamPlayer
 TextEdit

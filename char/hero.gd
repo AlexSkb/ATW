@@ -20,7 +20,7 @@ var calibration_offset_x = 0.0
 var calibration_offset_y = 0.0
 
 #health stuff
-var health = 110
+var health = 100
 
 #game logic stuff
 var player_can_move = true
@@ -154,3 +154,13 @@ func heal(heal_points):
 func add_ammo(ammunition):
 	ammo += ammunition
 	$"../Control/Label2".call("show_ammo", ammo)
+	
+func try_buy_ammo():
+	if number_of_points >= 10:
+		number_of_points -= 10
+		ammo += 5
+		$"../Control/Label2".call("show_ammo", ammo)
+		$"../Control/Label".call("show_points", number_of_points)
+	else:
+		print("Masz za mało punktów żeby kupic amunicję")
+		

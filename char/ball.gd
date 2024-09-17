@@ -19,3 +19,7 @@ func add_ammo(ammo):
 
 func additional_points(points):
 	hero.call("points", points)
+
+func buy_ammo():
+	hero.call("try_buy_ammo")
+	

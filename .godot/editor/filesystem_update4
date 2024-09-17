@@ -1,15 +1,8 @@
 res://char/hero.tscn
 res://char/hero.gd
+res://char/enemy.gd
 res://bullet.tscn
 res://Sparks.tscn
 res://char/enemy.tscn
 res://main.tscn
-res://main.gd
-res://char/enemy.gd
-res://terrain/height.res
-res://terrain/data.hterrain
 res://wooden_barrel.tscn
-res://wooden_barrel.gd
-res://char/ball.gd
-res://show_ammo.gd
-res://canoc.gd
